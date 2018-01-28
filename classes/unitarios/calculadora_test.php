@@ -1,6 +1,6 @@
 <?php
-require_once('Log.class.php');
-require_once('../simpletest/autorun.php');
+require_once('../Log.class.php');
+require_once('../../simpletest/autorun.php');
 
 class CalculadoraTest extends UnitTestCase {
 
@@ -12,11 +12,12 @@ class CalculadoraTest extends UnitTestCase {
   }
 
   function testSomaErroSeMenorQueZero(){
+    $this->expectException();
   	$log = new Calculadora;
   	$a = rand(1,1000);
   	$b = -2;
-  	$soma = $log->soma($a,$b);
-  	$this->assertEqual($soma,"Soma de números negativos não permitida.");
+  	$log->soma($a,$b);
+  	//$this->assertEqual($soma,"Soma de números negativos não permitida.");
   }
 }
 ?>
